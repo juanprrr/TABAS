@@ -6,7 +6,7 @@ namespace TABAS.BackEnd.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PerfilPersonalController : ControllerBase
+    public class PassengersController : ControllerBase
     {
         [HttpGet("{id}")]
         public string Get(int id)
@@ -20,7 +20,7 @@ namespace TABAS.BackEnd.Controllers
             };
         }
         [HttpPost]
-        public string Post(PerfilPersonalDto perfilPersonal)
+        public string Post(PassengersDto passenger)
         {
             //Guardar perfil en la base de datos.
             return "pasó";
