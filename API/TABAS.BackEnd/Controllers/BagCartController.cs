@@ -6,7 +6,7 @@ namespace TABAS.BackEnd.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PassengersController : ControllerBase
+    public class BagCartController : ControllerBase
     {
         [HttpGet("{id}")]
         public string Get(int id)
@@ -14,13 +14,13 @@ namespace TABAS.BackEnd.Controllers
             //Codigo para leer de la base de datos.
             return id switch
             {
-                1 => "Anthony",
-                2 => "Montero",
+                1 => "Ivan",
+                2 => "Curso",
                 _ => throw new NotSupportedException("el id no es válido")
             };
         }
         [HttpPost]
-        public string Post(PassengersDto passenger)
+        public string Post(BagCartDto bagCart)
         {
             //Guardar perfil en la base de datos.
             return "pasó";
