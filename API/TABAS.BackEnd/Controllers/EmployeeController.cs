@@ -22,7 +22,6 @@ namespace TABAS.BackEnd.Controllers
         [HttpGet("{id}")]
         public string Get(int id)
         {
-            //Codigo para leer de la base de datos.
             return id switch
             {
                 1 => "Ivan",

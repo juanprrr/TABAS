@@ -8,7 +8,7 @@ namespace TABAS.BackEnd.Controllers
     [ApiController]
     public class PassengerController : ControllerBase
     {
-        private static string jsonFileName = "Passenger.json";
+        private static string jsonFileName = "Passengers.json";
 
         /// <summary>
         /// This function gets the data of a passenger.
@@ -19,7 +19,6 @@ namespace TABAS.BackEnd.Controllers
         [HttpGet("{id}")]
         public string Get(int id)
         {
-            //Codigo para leer de la base de datos.
             return id switch
             {
                 1 => "Anthony",

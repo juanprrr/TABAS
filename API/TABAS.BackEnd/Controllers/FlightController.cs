@@ -8,10 +8,17 @@ namespace TABAS.BackEnd.Controllers
     [ApiController]
     public class FlightController : ControllerBase
     {
+        private static string jsonFileName = "Flights.json";
+
+        /// <summary>
+        /// This function gets the data of a flight.
+        /// </summary>
+        /// <param name="id"> The flight number </param>
+        /// <returns> Returns a flight object </returns>
+        /// <exception cref="NotSupportedException"></exception>
         [HttpGet("{id}")]
         public string Get(int id)
         {
-            //Codigo para leer de la base de datos.
             return id switch
             {
                 1 => "Ivan",
@@ -19,11 +26,16 @@ namespace TABAS.BackEnd.Controllers
                 _ => throw new NotSupportedException("el id no es válido")
             };
         }
+
+        /// <summary>
+        /// This function saves the data of a flight.
+        /// </summary>
+        /// <param name="flight"> The data of a flight </param>
+        /// <returns></returns>
         [HttpPost]
-        public string Post(FlightDto flight)
+        public void Post(FlightDto flight)
         {
-            //Guardar perfil en la base de datos.
-            return "pasó";
+            JsonSerialization.SerializeJsonFile(flight, jsonFileName);
         }
     }
 }

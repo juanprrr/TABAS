@@ -1,5 +1,8 @@
 ﻿namespace TABAS.BackEnd.Models
 {
+    /// <summary>
+    /// This class is assigned for the airplanes data.
+    /// </summary>
     public class AirplaneDto
     {
         public int Id { get; set; }

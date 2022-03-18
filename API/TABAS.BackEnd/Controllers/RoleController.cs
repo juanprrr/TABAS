@@ -6,35 +6,35 @@ namespace TABAS.BackEnd.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class SuitcaseController : ControllerBase
+    public class RoleController : ControllerBase
     {
-        private static string jsonFileName = "Suitcases.json";
+        private static string jsonFileName = "Roles.json";
 
         /// <summary>
-        /// This function gets the data of a suitcase.
+        /// This function gets the data of a role.
         /// </summary>
-        /// <param name="id"> The suitcase number </param>
-        /// <returns> Returns a suitcase object </returns>
+        /// <param name="id"> The name of the role </param>
+        /// <returns> Returns a role object </returns>
         /// <exception cref="NotSupportedException"></exception>
         [HttpGet("{id}")]
         public string Get(int id)
         {
             return id switch
             {
-                1 => "1",
-                2 => "40",
+                1 => "Ivan",
+                2 => "Curso",
                 _ => throw new NotSupportedException("el id no es válido")
             };
         }
 
         /// <summary>
-        /// This function saves the data of a suitcase.
+        /// This function saves the data of a role.
         /// </summary>
-        /// <param name="suitcase"> The data of a suitcase </param>
+        /// <param name="rol"> The data of a role </param>
         [HttpPost]
-        public void Post(SuitcaseDto suitcase)
+        public void Post(RoleDto role)
         {
-            JsonSerialization.SerializeJsonFile(suitcase, jsonFileName);
+            JsonSerialization.SerializeJsonFile(role, jsonFileName);
         }
     }
 }
