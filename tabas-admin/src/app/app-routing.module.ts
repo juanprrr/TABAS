@@ -1,3 +1,4 @@
+import { BaggageToFlightComponent } from './Components/baggage-to-flight/baggage-to-flight.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {WregisterComponent} from "../app/Components/wregister/wregister.component";
@@ -7,7 +8,8 @@ import { SigninComponent } from './Components/signin/signin.component';
 const routes: Routes = [
   {path:'Wregister', component: WregisterComponent},
   {path:'Login', component: LoginComponent},
-  {path:'Signin', component: SigninComponent}
+  {path:'Signin', component: SigninComponent},
+  {path: 'BaggageToFlight', component: BaggageToFlightComponent}
 ];
 
 @NgModule({
