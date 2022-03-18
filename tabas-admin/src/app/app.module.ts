@@ -9,6 +9,7 @@ import { HomeComponent } from './Components/home/home.component';
 import { SigninComponent } from './Components/signin/signin.component';
 import { BaggageToFlightComponent } from './Components/baggage-to-flight/baggage-to-flight.component';
 import { MainmenuComponent } from './Components/mainmenu/mainmenu.component';
+import { AssbagcartComponent } from './Components/assbagcart/assbagcart.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { MainmenuComponent } from './Components/mainmenu/mainmenu.component';
     SigninComponent,
     routingComponents,
     BaggageToFlightComponent,
-    MainmenuComponent
+    MainmenuComponent,
+    AssbagcartComponent
   ],
   imports: [
     BrowserModule,
