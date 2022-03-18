@@ -4,5 +4,6 @@
     {
         public int Id { get; set; }
         public int Total_suitcases { get; set; }
+        public ModelDto Model { get; set; }
     }
 }

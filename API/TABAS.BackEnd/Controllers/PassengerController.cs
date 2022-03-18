@@ -1,23 +1,20 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
 using TABAS.BackEnd.Models;
-using System.IO;
-using System;
 
 namespace TABAS.BackEnd.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class EmployeeController : ControllerBase
+    public class PassengerController : ControllerBase
     {
-        private static string jsonFileName = "Employees.json";
+        private static string jsonFileName = "Passenger.json";
 
         /// <summary>
-        /// This function gets the data of an employee.
+        /// This function gets the data of a passenger.
         /// </summary>
-        /// <param name="id"> The emloyee´s identifier </param>
-        /// <returns> Returns an employee object </returns>
+        /// <param name="id"> The passenger´s identifier </param>
+        /// <returns> Returns a passenger object </returns>
         /// <exception cref="NotSupportedException"></exception>
         [HttpGet("{id}")]
         public string Get(int id)
@@ -25,20 +22,20 @@ namespace TABAS.BackEnd.Controllers
             //Codigo para leer de la base de datos.
             return id switch
             {
-                1 => "Ivan",
-                2 => "Curso",
+                1 => "Anthony",
+                2 => "Montero",
                 _ => throw new NotSupportedException("el id no es válido")
             };
         }
 
         /// <summary>
-        /// This function saves the data of an employee.
+        /// This function saves the data of a passenger.
         /// </summary>
-        /// <param name="employee"> The data of an employee </param>
+        /// <param name="passenger"> The data of a passengers </param>
         [HttpPost]
-        public void Post(EmployeeDto employee)
+        public void Post(PassengerDto passenger)
         {
-            JsonSerialization.SerializeJsonFile(employee, jsonFileName);
+            JsonSerialization.SerializeJsonFile(passenger, jsonFileName);
         }
     }
 }

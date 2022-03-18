@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "dsSgnT+dDUZ5L7pAhr9thuo95za93gQSOLz3XbkQ5IZtLt85mb9zEuWbNcjEEXLlIrJLYOisR+K5vi6EzRhXWQ==",
+  "dgSpecHash": "9gwpj0dgrAHR8IvwETVymDzT8fGEkq2ddX8C6KWO4wj+C1yB2uYJspDm11YQVixgaR4hr6/XKlkMt20HCIe2Eg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Anthony\\OneDrive - Estudiantes ITCR\\Escritorio\\2022\\Primer Semestre\\Bases de Datos\\Tareas\\Tarea Corta 1\\TABAS\\API\\TABAS.BackEnd\\TABAS.BackEnd.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Anthony\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\Anthony\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\Anthony\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\Anthony\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
     "C:\\Users\\Anthony\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
     "C:\\Users\\Anthony\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",

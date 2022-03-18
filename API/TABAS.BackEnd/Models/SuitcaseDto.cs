@@ -1,6 +1,6 @@
 ﻿namespace TABAS.BackEnd.Models
 {
-    public class SuitcasesDto
+    public class SuitcaseDto
     {
         public int Number { get; set; }
         public int Cost { get; set; }

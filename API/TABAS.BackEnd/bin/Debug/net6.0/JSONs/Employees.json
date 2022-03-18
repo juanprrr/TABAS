@@ -1,0 +1,11 @@
+{
+  "Id": 0,
+  "Name": "string",
+  "Lastname1": "string",
+  "Lastname2": "string",
+  "Password": "string",
+  "Rol": {
+    "Name": "string",
+    "Description": "string"
+  }
+}

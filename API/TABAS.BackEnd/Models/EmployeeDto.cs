@@ -7,5 +7,6 @@
         public string Lastname1 { get; set; }
         public string Lastname2 { get; set; }
         public string Password { get; set; }
+        public RolDto Rol { get; set; }
     }
 }
