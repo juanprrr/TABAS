@@ -1,0 +1,13 @@
+{
+  "Name": "Administrator",
+  "Description": "The employee administrates."
+}{
+  "Name": "Shipper",
+  "Description": "The employee ships."
+}{
+  "Name": "Recepcionist",
+  "Description": "The employee recieves."
+}{
+  "Name": "Scan",
+  "Description": "The employee scans."
+}

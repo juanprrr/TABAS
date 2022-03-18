@@ -34,7 +34,7 @@ namespace TABAS.BackEnd.Controllers
         [HttpPost]
         public void Post(ModelDto model)
         {
-            JsonSerialization.SerializeJsonFile(model, jsonFileName);
+            JsonManagement.SerializeJsonFile(model, jsonFileName);
         }
     }
 }

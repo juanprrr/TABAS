@@ -5,8 +5,8 @@
   "Lastname2": "Díaz",
   "Password": "123456",
   "Role": {
-    "Name": "Recepcionist",
-    "Description": "The employee receives."
+   "Name": "Recepcionist",
+   "Description": "The employee receives."
   }
 }{
   "Id": 1304667,

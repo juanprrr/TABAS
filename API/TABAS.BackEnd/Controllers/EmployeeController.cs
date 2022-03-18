@@ -22,12 +22,15 @@ namespace TABAS.BackEnd.Controllers
         [HttpGet("{id}")]
         public string Get(int id)
         {
+            /*
             return id switch
             {
                 1 => "Ivan",
                 2 => "Curso",
                 _ => throw new NotSupportedException("el id no es válido")
             };
+            */
+            return "pasó";
         }
 
         /// <summary>
@@ -37,7 +40,7 @@ namespace TABAS.BackEnd.Controllers
         [HttpPost]
         public void Post(EmployeeDto employee)
         {
-            JsonSerialization.SerializeJsonFile(employee, jsonFileName);
+            JsonManagement.SerializeJsonFile(employee, jsonFileName);
         }
     }
 }
