@@ -1,36 +1,42 @@
-{
-  "Id": 1,
-  "Total_suitcases": 40,
-  "Model": {
-    "Name": "Boeing 737",
-    "Warehouse_sections": "1 y 2"
+[
+  {
+    "Id": 1,
+    "Total_suitcases": 40,
+    "Model": {
+      "Name": "Boeing 737",
+      "Warehouse_sections": "1 y 2"
+    }
+  },
+  {
+    "Id": 2,
+    "Total_suitcases": 50,
+    "Model": {
+      "Name": "Airbus A320",
+      "Warehouse_sections": "3 y 4"
+    }
+  },
+  {
+    "Id": 3,
+    "Total_suitcases": 56,
+    "Model": {
+      "Name": "Boeing 777",
+      "Warehouse_sections": "5 y 6"
+    }
+  },
+  {
+    "Id": 4,
+    "Total_suitcases": 25,
+    "Model": {
+      "Name": "A330-900neo",
+      "Warehouse_sections": "7 y 8"
+    }
+  },
+  {
+    "Id": 5,
+    "Total_suitcases": 56,
+    "Model": {
+      "Name": "Boeing 777",
+      "Warehouse_sections": "5 y 6"
+    }
   }
-}{
-  "Id": 2,
-  "Total_suitcases": 50,
-  "Model": {
-    "Name": "Airbus A320",
-    "Warehouse_sections": "3 y 4"
-  }
-}{
-  "Id": 3,
-  "Total_suitcases": 56,
-  "Model": {
-    "Name": "Boeing 777",
-    "Warehouse_sections": "5 y 6"
-  }
-}{
-  "Id": 4,
-  "Total_suitcases": 25,
-  "Model": {
-    "Name": "A330-900neo",
-    "Warehouse_sections": "7 y 8"
-  }
-}{
-  "Id": 5,
-  "Total_suitcases": 56,
-  "Model": {
-    "Name": "Boeing 777",
-    "Warehouse_sections": "5 y 6"
-  }
-}
+]

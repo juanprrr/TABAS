@@ -34,7 +34,7 @@ namespace TABAS.BackEnd.Controllers
         [HttpPost]
         public void Post(RoleDto role)
         {
-            JsonManagement.SerializeJsonFile(role, jsonFileName);
+            //JsonManagement.SerializeJsonFile(role, jsonFileName);
         }
     }
 }

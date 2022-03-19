@@ -12,25 +12,23 @@ namespace TABAS.BackEnd
         /// </summary>
         /// <param name="jsonObject"> The json object to serialize </param>
         /// <param name="jsonFileName"> The name of the json file </param>
-        public static void SerializeJsonFile(object jsonObject, string jsonFileName)
+        public static void SerializeJsonFile(object jsonObject, object[] jsonFromFile, string jsonFileName)
         {
-            string json = JsonConvert.SerializeObject(jsonObject, Formatting.Indented);
-
             _path += jsonFileName;
+
+            List<object> finalJson = new List<object>
+            {
+                jsonObject
+            };
+
+            //if (File.Exists(_path))
+            //{
+            //    finalJson.AddRange(jsonFromFile);
+            //}
+
+            string json = JsonConvert.SerializeObject(finalJson, Formatting.Indented);
 
             File.AppendAllText(_path, json);
-        }
-        /// <summary>
-        /// This function deserializes a json object.
-        /// </summary>
-        /// <param name="jsonFileName"> The name of the json file </param>
-        public static void DeserializeJsonFile(string jsonFileName)
-        {
-            _path += jsonFileName;
-
-            string json = GetJsonFromFile(_path);
-
-            var jsonObject = JsonConvert.DeserializeObject<List<PassengerDto>>(json);
         }
 
         /// <summary>
@@ -38,14 +36,17 @@ namespace TABAS.BackEnd
         /// </summary>
         /// <param name="path"> The file path </param>
         /// <returns> Returns the data of a json file </returns>
-        private static string GetJsonFromFile(string path)
+        public static string GetJsonFromFile(string path)
         {
-            string contactsJsonFromFile;
-            
-            using (var reader = new StreamReader(path))
+            string contactsJsonFromFile = "";
+
+            if (File.Exists(path))
             {
-                contactsJsonFromFile = reader.ReadToEnd();
-            }
+                using (var reader = new StreamReader(path))
+                {
+                    contactsJsonFromFile = reader.ReadToEnd();
+                }
+            };
 
             return contactsJsonFromFile;
         }

@@ -35,7 +35,7 @@ namespace TABAS.BackEnd.Controllers
         [HttpPost]
         public void Post(FlightDto flight)
         {
-            JsonManagement.SerializeJsonFile(flight, jsonFileName);
+            //JsonManagement.SerializeJsonFile(flight, jsonFileName);
         }
     }
 }

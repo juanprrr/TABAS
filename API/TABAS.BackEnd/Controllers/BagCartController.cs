@@ -34,7 +34,7 @@ namespace TABAS.BackEnd.Controllers
         [HttpPost]
         public void Post(BagCartDto bagCart)
         {
-            JsonManagement.SerializeJsonFile(bagCart, jsonFileName);
+            //JsonManagement.SerializeJsonFile(bagCart, jsonFileName);
         }
     }
 }

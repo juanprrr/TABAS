@@ -34,7 +34,7 @@ namespace TABAS.BackEnd.Controllers
         [HttpPost]
         public void Post(SuitcaseDto suitcase)
         {
-            JsonManagement.SerializeJsonFile(suitcase, jsonFileName);
+            //JsonManagement.SerializeJsonFile(suitcase, jsonFileName);
         }
     }
 }

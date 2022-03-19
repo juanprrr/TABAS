@@ -40,7 +40,7 @@ namespace TABAS.BackEnd.Controllers
         [HttpPost]
         public void Post(EmployeeDto employee)
         {
-            JsonManagement.SerializeJsonFile(employee, jsonFileName);
+            //JsonManagement.SerializeJsonFile(employee, jsonFileName);
         }
     }
 }

@@ -1,0 +1,12 @@
+[
+  {
+    "Id": 0,
+    "Name": "string",
+    "Lastname1": "string",
+    "LastName2": "string",
+    "Password": "string",
+    "Phones": [
+      0
+    ]
+  }
+]
