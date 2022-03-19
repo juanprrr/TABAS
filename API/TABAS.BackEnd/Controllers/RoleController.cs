@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using TABAS.BackEnd.Models;
 
 namespace TABAS.BackEnd.Controllers
@@ -8,7 +9,7 @@ namespace TABAS.BackEnd.Controllers
     [ApiController]
     public class RoleController : ControllerBase
     {
-        private static string jsonFileName = "Roles.json";
+        private static string jsonFilePath = @".\JSONs\Roles.json";
 
         /// <summary>
         /// This function gets the data of a role.
@@ -34,7 +35,22 @@ namespace TABAS.BackEnd.Controllers
         [HttpPost]
         public void Post(RoleDto role)
         {
-            //JsonManagement.SerializeJsonFile(role, jsonFileName);
+            RoleDto[] jsonFromFile = DeserializeJsonFile();
+
+            JsonManagement.SerializeJsonFile(role, jsonFromFile, jsonFilePath);
+        }
+
+        /// <summary>
+        /// This function deserializes a json object.
+        /// </summary>
+        /// <returns> Returns a json list from a file </returns>
+        public static RoleDto[] DeserializeJsonFile()
+        {
+            string jsonFromFile = JsonManagement.GetJsonFromFile(jsonFilePath);
+
+            RoleDto[] jsonObject = JsonConvert.DeserializeObject<RoleDto[]>(jsonFromFile);
+
+            return jsonObject;
         }
     }
 }

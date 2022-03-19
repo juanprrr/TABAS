@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using TABAS.BackEnd.Models;
 
 namespace TABAS.BackEnd.Controllers
@@ -8,7 +9,7 @@ namespace TABAS.BackEnd.Controllers
     [ApiController]
     public class BagCartController : ControllerBase
     {
-        private static string jsonFileName = "BagCarts.json";
+        private static string jsonFilePath = @".\JSONs\BagCarts.json";
 
         /// <summary>
         /// This function gets the data of a bag cart.
@@ -34,7 +35,22 @@ namespace TABAS.BackEnd.Controllers
         [HttpPost]
         public void Post(BagCartDto bagCart)
         {
-            //JsonManagement.SerializeJsonFile(bagCart, jsonFileName);
+            BagCartDto[] jsonFromFile = DeserializeJsonFile();
+
+            JsonManagement.SerializeJsonFile(bagCart, jsonFromFile, jsonFilePath);
+        }
+
+        /// <summary>
+        /// This function deserializes a json object.
+        /// </summary>
+        /// <returns> Returns a json list from a file </returns>
+        public static BagCartDto[] DeserializeJsonFile()
+        {
+            string jsonFromFile = JsonManagement.GetJsonFromFile(jsonFilePath);
+
+            BagCartDto[] jsonObject = JsonConvert.DeserializeObject<BagCartDto[]>(jsonFromFile);
+
+            return jsonObject;
         }
     }
 }

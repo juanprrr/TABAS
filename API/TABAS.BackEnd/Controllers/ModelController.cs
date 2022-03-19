@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using TABAS.BackEnd.Models;
 
 namespace TABAS.BackEnd.Controllers
@@ -8,7 +9,7 @@ namespace TABAS.BackEnd.Controllers
     [ApiController]
     public class ModelController : ControllerBase
     {
-        private static string jsonFileName = "Models.json";
+        private static string jsonFilePath = @".\JSONs\Models.json";
 
         /// <summary>
         /// This function gets the data of an airplane model.
@@ -34,7 +35,22 @@ namespace TABAS.BackEnd.Controllers
         [HttpPost]
         public void Post(ModelDto model)
         {
-            //JsonManagement.SerializeJsonFile(model, jsonFileName);
+            ModelDto[] jsonFromFile = DeserializeJsonFile();
+
+            JsonManagement.SerializeJsonFile(model, jsonFromFile, jsonFilePath);
+        }
+
+        /// <summary>
+        /// This function deserializes a json object.
+        /// </summary>
+        /// <returns> Returns a json list from a file </returns>
+        public static ModelDto[] DeserializeJsonFile()
+        {
+            string jsonFromFile = JsonManagement.GetJsonFromFile(jsonFilePath);
+
+            ModelDto[] jsonObject = JsonConvert.DeserializeObject<ModelDto[]>(jsonFromFile);
+
+            return jsonObject;
         }
     }
 }

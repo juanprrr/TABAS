@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using TABAS.BackEnd.Models;
 
 namespace TABAS.BackEnd.Controllers
@@ -8,7 +9,7 @@ namespace TABAS.BackEnd.Controllers
     [ApiController]
     public class SuitcaseController : ControllerBase
     {
-        private static string jsonFileName = "Suitcases.json";
+        private static string jsonFilePath = @".\JSONs\Suitcases.json";
 
         /// <summary>
         /// This function gets the data of a suitcase.
@@ -34,7 +35,22 @@ namespace TABAS.BackEnd.Controllers
         [HttpPost]
         public void Post(SuitcaseDto suitcase)
         {
-            //JsonManagement.SerializeJsonFile(suitcase, jsonFileName);
+            SuitcaseDto[] jsonFromFile = DeserializeJsonFile();
+
+            JsonManagement.SerializeJsonFile(suitcase, jsonFromFile, jsonFilePath);
+        }
+
+        /// <summary>
+        /// This function deserializes a json object.
+        /// </summary>
+        /// <returns> Returns a json list from a file </returns>
+        public static SuitcaseDto[] DeserializeJsonFile()
+        {
+            string jsonFromFile = JsonManagement.GetJsonFromFile(jsonFilePath);
+
+            SuitcaseDto[] jsonObject = JsonConvert.DeserializeObject<SuitcaseDto[]>(jsonFromFile);
+
+            return jsonObject;
         }
     }
 }

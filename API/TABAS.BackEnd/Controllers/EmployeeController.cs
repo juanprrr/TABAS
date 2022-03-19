@@ -11,7 +11,7 @@ namespace TABAS.BackEnd.Controllers
     [ApiController]
     public class EmployeeController : ControllerBase
     {
-        private static string jsonFileName = "Employees.json";
+        private static string jsonFilePath = @".\JSONs\Employees.json";
 
         /// <summary>
         /// This function gets the data of an employee.
@@ -40,7 +40,22 @@ namespace TABAS.BackEnd.Controllers
         [HttpPost]
         public void Post(EmployeeDto employee)
         {
-            //JsonManagement.SerializeJsonFile(employee, jsonFileName);
+            EmployeeDto[] jsonFromFile = DeserializeJsonFile();
+
+            JsonManagement.SerializeJsonFile(employee, jsonFromFile, jsonFilePath);
+        }
+
+        /// <summary>
+        /// This function deserializes a json object.
+        /// </summary>
+        /// <returns> Returns a json list from a file </returns>
+        public static EmployeeDto[] DeserializeJsonFile()
+        {
+            string jsonFromFile = JsonManagement.GetJsonFromFile(jsonFilePath);
+
+            EmployeeDto[] jsonObject = JsonConvert.DeserializeObject<EmployeeDto[]>(jsonFromFile);
+
+            return jsonObject;
         }
     }
 }

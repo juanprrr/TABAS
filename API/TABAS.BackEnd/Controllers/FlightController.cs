@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using TABAS.BackEnd.Models;
 
 namespace TABAS.BackEnd.Controllers
@@ -8,7 +9,7 @@ namespace TABAS.BackEnd.Controllers
     [ApiController]
     public class FlightController : ControllerBase
     {
-        private static string jsonFileName = "Flights.json";
+        private static string jsonFilePath = @".\JSONs\Flights.json";
 
         /// <summary>
         /// This function gets the data of a flight.
@@ -35,7 +36,22 @@ namespace TABAS.BackEnd.Controllers
         [HttpPost]
         public void Post(FlightDto flight)
         {
-            //JsonManagement.SerializeJsonFile(flight, jsonFileName);
+            FlightDto[] jsonFromFile = DeserializeJsonFile();
+
+            JsonManagement.SerializeJsonFile(flight, jsonFromFile, jsonFilePath);
+        }
+
+        /// <summary>
+        /// This function deserializes a json object.
+        /// </summary>
+        /// <returns> Returns a json list from a file </returns>
+        public static FlightDto[] DeserializeJsonFile()
+        {
+            string jsonFromFile = JsonManagement.GetJsonFromFile(jsonFilePath);
+
+            FlightDto[] jsonObject = JsonConvert.DeserializeObject<FlightDto[]>(jsonFromFile);
+
+            return jsonObject;
         }
     }
 }
