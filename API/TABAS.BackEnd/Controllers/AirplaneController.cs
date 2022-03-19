@@ -18,14 +18,21 @@ namespace TABAS.BackEnd.Controllers
         /// <returns> Returns an airplane object </returns>
         /// <exception cref="NotSupportedException"></exception>
         [HttpGet("{id}")]
-        public string Get(int id)
+        public object Get(int id)
         {
-            return id switch
+            AirplaneDto[] jsonFromFile = DeserializeJsonFile();
+
+            object response = "";
+
+            foreach (var jsonObject in jsonFromFile)
             {
-                1 => "Ivan",
-                2 => "Curso",
-                _ => throw new NotSupportedException("el id no es válido")
-            };
+                if (jsonObject.Id == id)
+                {
+                    response = jsonObject;
+                }
+            }
+
+            return response;
         }
 
         /// <summary>

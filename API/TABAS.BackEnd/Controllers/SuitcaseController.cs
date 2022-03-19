@@ -18,14 +18,21 @@ namespace TABAS.BackEnd.Controllers
         /// <returns> Returns a suitcase object </returns>
         /// <exception cref="NotSupportedException"></exception>
         [HttpGet("{id}")]
-        public string Get(int id)
+        public object Get(int id)
         {
-            return id switch
+            SuitcaseDto[] jsonFromFile = DeserializeJsonFile();
+
+            object response = "";
+
+            foreach (var jsonObject in jsonFromFile)
             {
-                1 => "1",
-                2 => "40",
-                _ => throw new NotSupportedException("el id no es válido")
-            };
+                if (jsonObject.Number == id)
+                {
+                    response = jsonObject;
+                }
+            }
+
+            return response;
         }
 
         /// <summary>
