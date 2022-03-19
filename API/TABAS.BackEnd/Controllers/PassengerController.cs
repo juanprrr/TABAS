@@ -18,8 +18,20 @@ namespace TABAS.BackEnd.Controllers
         /// <returns> Returns a passenger object </returns>
         /// <exception cref="NotSupportedException"></exception>
         [HttpGet("{id}")]
-        public string Get(int id)
+        public object Get(int id)
         {
+            PassengerDto[] jsonFromFile = DeserializeJsonFile();
+
+            object response = "";
+
+            foreach (var jsonObject in jsonFromFile )
+            {
+                if(jsonObject.Id == id)
+                {
+                    response = jsonObject;
+                }
+            }
+
             /*
             return id switch
             {
@@ -28,7 +40,8 @@ namespace TABAS.BackEnd.Controllers
                 _ => throw new NotSupportedException("el id no es válido")
             };
             */
-            return "pasó";
+
+            return response;
         }
 
         /// <summary>
