@@ -9,7 +9,7 @@ namespace TABAS.BackEnd.Controllers
     [ApiController]
     public class PassengerController : ControllerBase
     {
-        private static string jsonFileName = "Passengers.json";
+        private static string jsonFilePath = @".\JSONs\Passengers.json";
 
         /// <summary>
         /// This function gets the data of a passenger.
@@ -38,9 +38,9 @@ namespace TABAS.BackEnd.Controllers
         [HttpPost]
         public void Post(PassengerDto passenger)
         {
-            PassengerDto[] jsonFromFile = null; // = DeserializeJsonFile();
+            PassengerDto[] jsonFromFile = DeserializeJsonFile();
 
-            JsonManagement.SerializeJsonFile(passenger, jsonFromFile, jsonFileName);
+            JsonManagement.SerializeJsonFile(passenger, jsonFromFile, jsonFilePath);
         }
 
         /// <summary>
@@ -49,9 +49,7 @@ namespace TABAS.BackEnd.Controllers
         /// <returns> Returns a json list from a file </returns>
         public static PassengerDto[] DeserializeJsonFile()
         {
-            string _path = @".\JSONs\" + jsonFileName;
-
-            string jsonFromFile = JsonManagement.GetJsonFromFile(_path);
+            string jsonFromFile = JsonManagement.GetJsonFromFile(jsonFilePath);
 
             PassengerDto[] jsonObject = JsonConvert.DeserializeObject<PassengerDto[]>(jsonFromFile);
 
