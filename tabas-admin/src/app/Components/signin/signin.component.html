@@ -14,39 +14,40 @@
             <form action="#">
             <div class="class mb-4">
                 <label for="name" class="form-label">Nombre</label>
-                <input type="name" class="form-control" name="name">
+                <input type="name" [(ngModel)]="newEmployee.Name" class="form-control" name="name">
             </div>
             <div class="class mb-4">
-              <label for="name" class="form-label">Apellidos</label>
-              <input type="name" class="form-control" name="name">
+              <label for="lastname1" class="form-label">Apellido1</label>
+              <input type="name" [(ngModel)]="newEmployee.Lastname1" class="form-control" name="lastname1">
             </div>
             <div class="class mb-4">
-              <label for="email" class="form-label">Correo Electrónico</label>
-              <input type="email" class="form-control" name="email">
+              <label for="lastname2" class="form-label">Apellido2</label>
+              <input type="name" [(ngModel)]="newEmployee.Lastname2" class="form-control" name="lastname2">
             </div>
-            <div class="mb-4">
-                <label for="password" class="form-label">Contraseña</label>
-                <input type="password" class="form-control" name="password">
-              </div>            
+            <div class="class mb-4">
+              <label for="contraseña" class="form-label">Contraseña</label>
+              <input type="password" [(ngModel)]="newEmployee.Password" class="form-control" name="contraseña">
+            </div>        
             <div class="class mb-4">
               <label for="number" class="form-label">Cédula</label>
-              <input type="number" class="form-control" name="number">
+              <input type="number" [(ngModel)]="newEmployee.Id" class="form-control" name="number">
             </div>
 
-            <div class="class mb-1">
+            <div class="class mb-4">
                 <label for="role" class="form-label">Ingrese su rol</label>
+                <input type="name" [(ngModel)]="newEmployee.Role" class="form-control" name="number">
             </div>
 
-            <select class="form-select mb-4" aria-label="Default select example">
+            <!--select class="form-select mb-4" aria-label="Default select example">
                 <option selected>Seleccione su rol</option>
                 <option value="1">Administrador (a)</option>
                 <option value="2">Scan</option>
                 <option value="3">Embarcador (a)</option>
                 <option value="4">Recepcionista</option>
-            </select>
+            </select!-->
 
             <div class="d-grid">
-              <button type="submit" class="btn btn-primary">Registrarse</button>
+              <button type="submit" class="btn btn-primary" (click)="addEmployee(newEmployee)">Registrarse</button>
             </div>
 
           </form>

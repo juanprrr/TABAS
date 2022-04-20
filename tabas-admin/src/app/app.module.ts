@@ -1,5 +1,6 @@
 import { NgModule, Component } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +11,7 @@ import { SigninComponent } from './Components/signin/signin.component';
 import { BaggageToFlightComponent } from './Components/baggage-to-flight/baggage-to-flight.component';
 import { MainmenuComponent } from './Components/mainmenu/mainmenu.component';
 import { AssbagcartComponent } from './Components/assbagcart/assbagcart.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -22,11 +24,13 @@ import { AssbagcartComponent } from './Components/assbagcart/assbagcart.componen
     routingComponents,
     BaggageToFlightComponent,
     MainmenuComponent,
-    AssbagcartComponent
+    AssbagcartComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

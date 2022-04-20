@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Router } from '@angular/router';
+import { Router } from '@angular/router';
+import { EmployeeService } from '../../Service/employee.service';
 
 @Component({
   selector: 'app-login',
@@ -17,6 +18,7 @@ export class LoginComponent implements OnInit {
   goToPage(pageName:string){
     this.router.navigate([`${pageName}`]);
   }
+  
   
 }
 
