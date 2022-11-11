@@ -1,0 +1,27 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+name: Keep clone up to date
+variables:
+  REMOTE_ADDR: 'https://github.com/juanprrr/TABAS.git'
+stages:
+  - stage: running_git_commands
+    displayName: running_git_commands
+    jobs:
+      - job: initiate
+        displayName: initiate
+        continueOnError: false
+        steps:
+        - checkout: self
+          clean: true
+          persistCredentials: true
+          displayName: run_commands
+        - bash: | 
+            git checkout main
+            git remote add repoGithub $(REMOTE_ADDR)
+            git fetch repoGithub main
+            git reset --hard repoGithub/main
+            git pull --rebase repoGithub main
+            git push -f origin
